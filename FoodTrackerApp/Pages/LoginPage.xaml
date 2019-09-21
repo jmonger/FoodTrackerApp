@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>  
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             x:Class="FoodTrackerApp.Pages.LoginPage"
+             
+             >  
+    <ContentPage.Content>
+            <StackLayout Orientation="Vertical" Padding="40" Spacing="20">  
+                <BoxView HeightRequest="10"/>
+                <Image HorizontalOptions="Center" WidthRequest="200" Source="foodsafelogo.png"/>
+                <Label Text="Welcome to FoodSafe" HorizontalOptions="Center" FontSize="25"/>
+                <Label Text="Your Path to Health and Wellness" HorizontalOptions="Center" FontSize="15"/>
+                <Frame BackgroundColor="#BF043055" HasShadow="False">  
+                    <StackLayout Orientation="Vertical" Spacing="10">  
+                        <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Email"   
+                               PlaceholderColor="White" HeightRequest="45"   
+                               Keyboard="Email"  
+                               TextColor="White"/>  
+                        <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Password"   
+                               PlaceholderColor="White" HeightRequest="45"   
+                               IsPassword="True"  
+                               TextColor="White"/>  
+                    </StackLayout>  
+                </Frame>  
+                <Button Command="{Binding SubmitCommand}" Text="Login" TextColor="White"  
+                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                        BackgroundColor="#088da5" />
+                <Button Command="{Binding SubmitCommand}" Text="Create Account" TextColor="#088da5"  
+                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                        BackgroundColor="White" /> 
+            </StackLayout>
+    </ContentPage.Content>  
+</ContentPage> 
