@@ -3,8 +3,8 @@
 # Edit at https://www.gitignore.io/?templates=visualstudio,xamarinstudio
 
 ### XamarinStudio ###
-bin/
-obj/
+FoodTrackerApp.Android/bin/
+FoodTrackerApp.Android/obj/
 *.userprefs
 .packages
 
