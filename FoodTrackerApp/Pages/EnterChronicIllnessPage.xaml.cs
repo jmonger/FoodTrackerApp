@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using Xamarin.Forms;
 
 namespace FoodTrackerApp.Pages
 {
-    public partial class CreateAccountPage : ContentPage
+    public partial class EnterChronicIllnessPage : ContentPage
     {
-        public CreateAccountPage()
+        public EnterChronicIllnessPage()
         {
             InitializeComponent();
         }

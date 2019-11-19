@@ -1,5 +1,43 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="FoodTrackerApp.Pages.CreateAccountPage">
+﻿<?xml version="1.0" encoding="utf-8" ?>  
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             x:Class="FoodTrackerApp.Pages.CreateAccountPage"
+             
+             >  
     <ContentPage.Content>
-    </ContentPage.Content>
-</ContentPage>
+            <StackLayout Orientation="Vertical" Padding="40" Spacing="10">  
+                <BoxView HeightRequest="5"/>
+                <Image HorizontalOptions="Center" WidthRequest="100" Source="foodsafelogo.png"/>
+                <Label Text="Create Account" HorizontalOptions="Center" FontSize="25"/>
+                <Label Text="Enter Personal Information" HorizontalOptions="Center" FontSize="15"/>
+                <Frame BackgroundColor="#FE0000" HasShadow="False">  
+                    <StackLayout Orientation="Vertical" Spacing="10">
+                        <Entry x:Name="f_name" Text="{Binding f_name}" Placeholder="First Name"   
+                               PlaceholderColor="White" HeightRequest="45"   
+                               Keyboard="First Name"  
+                               TextColor="White"/>
+                        <Entry x:Name="l_name" Text="{Binding l_name}" Placeholder="Last Name"   
+                               PlaceholderColor="White" HeightRequest="45"   
+                               Keyboard="Email"  
+                               TextColor="White"/>  
+                        <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Email"   
+                               PlaceholderColor="White" HeightRequest="45"   
+                               Keyboard="Email"  
+                               TextColor="White"/>  
+                        <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Password"   
+                               PlaceholderColor="White" HeightRequest="45"   
+                               IsPassword="True"  
+                               TextColor="White"/>
+                        <Entry x:Name="Confirm_Password" Text="{Binding Confirm_Password}" Placeholder="Confirm Password"   
+                               PlaceholderColor="White" HeightRequest="45"   
+                               IsPassword="True"  
+                               TextColor="White"/>
+                    </StackLayout>  
+                </Frame>  
+                <Button Command="{Binding SubmitCommand}" WidthRequest="100" Text="Next..." TextColor="White"  
+                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="End"  
+                        BackgroundColor="Black" />
+
+            </StackLayout>
+    </ContentPage.Content>  
+</ContentPage> 

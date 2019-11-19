@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>  
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"  
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
-             x:Class="FoodTrackerApp.Pages.LoginPage"
-             
+             x:Class="FoodTrackerApp.Pages.LoginPage"            
              >  
     <ContentPage.Content>
             <StackLayout Orientation="Vertical" Padding="40" Spacing="20">  
@@ -10,7 +9,7 @@
                 <Image HorizontalOptions="Center" WidthRequest="200" Source="foodsafelogo.png"/>
                 <Label Text="Welcome to FoodSafe" HorizontalOptions="Center" FontSize="25"/>
                 <Label Text="Your Path to Health and Wellness" HorizontalOptions="Center" FontSize="15"/>
-                <Frame BackgroundColor="#BF043055" HasShadow="False">  
+                <Frame BackgroundColor="#FE0000" HasShadow="False">  
                     <StackLayout Orientation="Vertical" Spacing="10">  
                         <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Email"   
                                PlaceholderColor="White" HeightRequest="45"   
@@ -24,10 +23,13 @@
                 </Frame>  
                 <Button Command="{Binding SubmitCommand}" Text="Login" TextColor="White"  
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                        BackgroundColor="#088da5" />
-                <Button Command="{Binding SubmitCommand}" Text="Create Account" TextColor="#088da5"  
+                        BackgroundColor="Black" />
+                <Button Command="{Binding SubmitCommand}" Text="Create Account" TextColor="Black"  
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                        BackgroundColor="White" /> 
+                        BackgroundColor="White" />
+                 <Button Command="{Binding SubmitCommand}" Text="Forgot Password" TextColor="White"  
+                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                        BackgroundColor="Black" /> 
             </StackLayout>
     </ContentPage.Content>  
 </ContentPage> 
