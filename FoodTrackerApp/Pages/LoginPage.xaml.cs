@@ -1,7 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using FoodTrackerApp.ViewModels;
+using FoodTrackerApp.Models;
 
 namespace FoodTrackerApp.Pages
 {
@@ -10,7 +10,7 @@ namespace FoodTrackerApp.Pages
     {
         public LoginPage()
         {
-            var vm = new LoginViewModel();
+            var vm = new LoginModel();
             this.BindingContext = vm;
             vm.DisplayInvalidLoginPrompt += () => DisplayAlert("Error", "Invalid Login, try again", "OK");
             vm.DisplayAlert += () => DisplayAlert("Success", "Email and Password Authenticated", "OK");
@@ -23,7 +23,6 @@ namespace FoodTrackerApp.Pages
 
             Password.Completed += (object sender, EventArgs e) =>
             {
-                vm.SubmitCommand.Execute(null);
             };
         }
     }
