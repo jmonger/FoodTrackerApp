@@ -19,8 +19,6 @@ namespace FoodTrackerApp.Pages
         {
             ApiServices apiServices = new ApiServices();
 
-            //Console.WriteLine(LoginEmail.Text);
-            //Console.WriteLine(LoginPassword.Text);
             bool response = await apiServices.LoginUser(LoginEmail.Text, LoginPassword.Text);
             if(!response)
             {
@@ -30,6 +28,11 @@ namespace FoodTrackerApp.Pages
             {
                 await DisplayAlert("Alert", "Log Sucessful", "Cancel");
             }
+        }
+
+        private void TapRegister_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new CreateAccountPage());
         }
     }
 }

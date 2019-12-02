@@ -30,10 +30,10 @@ namespace FoodTrackerApp.Services
             };
 
             var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
+            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
             var json = JsonConvert.SerializeObject(registerModel);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync("https://healthlog-deployment.dbmvyepwfm.us-east-1.elasticbeanstalk.com/api/registration/", content);
+            var response = await httpClient.PostAsync("http://healthlog-deployment.dbmvyepwfm.us-east-1.elasticbeanstalk.com/api/registration/", content);
             return response.IsSuccessStatusCode;
         }
 
@@ -42,18 +42,17 @@ namespace FoodTrackerApp.Services
 
             var loginModel = new LoginModel()
             {
-                email = "matt@email.com",
-                password = "password"
+                email = email,
+                password = password
             };
 
             var httpClient = new HttpClient();
-            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-
+            //For TLS https support
+            //System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
             var json = JsonConvert.SerializeObject(loginModel);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             HttpResponseMessage response = await httpClient.PostAsync("http://healthlog-deployment.dbmvyepwfm.us-east-1.elasticbeanstalk.com/api/auth/", content);
             var result = await response.Content.ReadAsStringAsync();
-            Debug.WriteLine("API REsponse" + result);
             return response.IsSuccessStatusCode;
             
         }

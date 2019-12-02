@@ -5,39 +5,67 @@
              
              >  
     <ContentPage.Content>
-            <StackLayout Orientation="Vertical" Padding="40" Spacing="10">  
+            <StackLayout Orientation="Vertical" Padding="40" Spacing="7">  
                 <BoxView HeightRequest="5"/>
-                <Image HorizontalOptions="Center" WidthRequest="100" Source="foodsafelogo.png"/>
+                <Image HorizontalOptions="Center" WidthRequest="75" Source="foodsafelogo.png"/>
                 <Label Text="Create Account" HorizontalOptions="Center" FontSize="25"/>
                 <Label Text="Enter Personal Information" HorizontalOptions="Center" FontSize="15"/>
                 <Frame BackgroundColor="#FE0000" HasShadow="False">  
                     <StackLayout Orientation="Vertical" Spacing="10">
-                        <Entry x:Name="f_name" Text="{Binding f_name}" Placeholder="First Name"   
-                               PlaceholderColor="White" HeightRequest="45"   
-                               Keyboard="First Name"  
-                               TextColor="White"/>
-                        <Entry x:Name="l_name" Text="{Binding l_name}" Placeholder="Last Name"   
-                               PlaceholderColor="White" HeightRequest="45"   
-                               Keyboard="Email"  
-                               TextColor="White"/>  
-                        <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Email"   
-                               PlaceholderColor="White" HeightRequest="45"   
-                               Keyboard="Email"  
-                               TextColor="White"/>  
-                        <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Password"   
-                               PlaceholderColor="White" HeightRequest="45"   
-                               IsPassword="True"  
-                               TextColor="White"/>
-                        <Entry x:Name="Confirm_Password" Text="{Binding Confirm_Password}" Placeholder="Confirm Password"   
-                               PlaceholderColor="White" HeightRequest="45"   
-                               IsPassword="True"  
-                               TextColor="White"/>
-                    </StackLayout>  
-                </Frame>  
-                <Button Command="{Binding SubmitCommand}" WidthRequest="100" Text="Next..." TextColor="White"  
-                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="End"  
-                        BackgroundColor="Black" />
+                        <Entry x:Name="FirstName" Placeholder="First Name" FontSize="Medium"  
+                                   PlaceholderColor="White" HeightRequest="40"  
+                                    HorizontalOptions="FillAndExpand"
+                                   TextColor="White"/>
+                        <Entry x:Name="LastName" Placeholder="Last Name"   
+                                   PlaceholderColor="White" HeightRequest="40" FontSize="Medium" 
+                                   HorizontalOptions="FillAndExpand"
+                                   TextColor="White"/>
+                    <Entry x:Name="Email" Placeholder="Email"   
+                                   PlaceholderColor="White" HeightRequest="40" FontSize="Medium"  
+                                   TextColor="White"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Entry x:Name="Height" Placeholder="Height"   
+                                   PlaceholderColor="White" HeightRequest="40" FontSize="Medium"  
+                                   HorizontalOptions="FillAndExpand"
+                                   TextColor="White"/>
+                        <Entry x:Name="Weight" Placeholder="Weight"   
+                                   PlaceholderColor="White" HeightRequest="40" FontSize="Medium"
+                                   HorizontalOptions="FillAndExpand"
+                                   TextColor="White"/>
+                        <Entry x:Name="Age" Placeholder="Age" FontSize="Medium"
+                                   PlaceholderColor="White" HeightRequest="40"  
+                                   HorizontalOptions="FillAndExpand"
+                                   TextColor="White"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Birthday" TextColor="White"  FontSize="Medium"/>
+                        <Label x:Name="BirthDayText" Text="{Binding Source={x:Reference SelectedBirthDate }}"/>
+                    </StackLayout>
+                    
+                        <DatePicker x:Name="SelectedBirthDate"
+                                Format="yyyy-MM-dd"
+                                MinimumDate="1900-01-01"
+                                MaximumDate="2020-01-01"
+                                   HeightRequest="40"   
+                                   TextColor="White"
+                                    DateSelected="birth_date_DateSelected"/>
+                    <Entry x:Name="Password" Placeholder="Password"   
+                                   PlaceholderColor="White" HeightRequest="40" FontSize="Medium"
+                                   HorizontalOptions="FillAndExpand"
+                                   IsPassword="True"
+                                   TextColor="White"/>
+                    <Entry x:Name="ConfirmPassword" Placeholder="Confirm Password"   
+                                   PlaceholderColor="White" HeightRequest="40" FontSize="Medium"
+                                   HorizontalOptions="FillAndExpand"
+                                   IsPassword="True"
+                                   TextColor="White"/>
+                </StackLayout>  
+                </Frame>
+            <Button Command="{Binding SubmitCommand}"  Text="Submit" TextColor="White"  
+                        FontAttributes="Bold" HorizontalOptions="FillAndExpand"  
+                        BackgroundColor="Black"
+                        Clicked="Button_Clicked"/>
 
-            </StackLayout>
+        </StackLayout>
     </ContentPage.Content>  
 </ContentPage> 
