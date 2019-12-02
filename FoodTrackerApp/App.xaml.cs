@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using FoodTrackerApp.Pages;
 
 namespace FoodTrackerApp
 {
@@ -10,7 +11,7 @@ namespace FoodTrackerApp
         {
             InitializeComponent();
 
-            MainPage = new FoodTrackerApp.Pages.LoginPage();
+            MainPage = new LoginPage();
         }
 
         protected override void OnStart()

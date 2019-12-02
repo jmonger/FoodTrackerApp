@@ -9,24 +9,34 @@
                 <Image HorizontalOptions="Center" WidthRequest="150" Source="foodsafelogo.png"/>
                 <Label Text="Welcome to FoodSafe" HorizontalOptions="Center" FontSize="25"/>
                 <Label Text="Your Path to Health and Wellness" HorizontalOptions="Center" FontSize="15"/>
-                <Frame BackgroundColor="#FE0000" HasShadow="False">  
-                    <StackLayout Orientation="Vertical" Spacing="10">  
-                        <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Email"   
+            <Frame BackgroundColor="#FE0000" HasShadow="False">
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <Entry x:Name="LoginEmail" Placeholder="Email"   
                                PlaceholderColor="White" HeightRequest="45"   
                                Keyboard="Email"  
-                               TextColor="White"/>  
-                        <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Password"   
+                               TextColor="White"/>
+                    <Entry x:Name="LoginPassword" Placeholder="Password"   
                                PlaceholderColor="White" HeightRequest="45"   
                                IsPassword="True"  
-                               TextColor="White"/>  
-                    </StackLayout>  
-                </Frame>  
+                               TextColor="White"/>
+                </StackLayout>
+            </Frame>
+            <StackLayout>
                 <Button Command="{Binding SubmitCommand}" Text="Login" TextColor="White"  
-                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                        BackgroundColor="Black" />
-            <Button Command="{Binding SubmitCommand}" Text="Create Account" TextColor="Black"  
-                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                        BackgroundColor="White" />
+                                FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                                BackgroundColor="Black" x:Name="BtnLogin" Clicked="BtnLogin_Clicked"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Padding="20" Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Don't have an account?"/>
+                <StackLayout Spacing="0">
+                    <Label Text="Sign Up" FontAttributes="Bold"></Label>
+                    <BoxView BackgroundColor="Black" HeightRequest="1"/>
+                </StackLayout>
+            </StackLayout>
+
+
+
         </StackLayout>
     </ContentPage.Content>  
 </ContentPage> 

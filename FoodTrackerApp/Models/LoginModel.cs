@@ -9,7 +9,5 @@ namespace FoodTrackerApp.Models
     {
         public string email { get; set; }
         public string password { get; set; }
-        public Func<Task> DisplayInvalidLoginPrompt { get; internal set; }
-        public Func<Task> DisplayAlert { get; internal set; }
     }
 }

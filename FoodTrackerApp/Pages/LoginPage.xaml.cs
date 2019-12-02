@@ -2,6 +2,8 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using FoodTrackerApp.Models;
+using FoodTrackerApp.Services;
+
 
 namespace FoodTrackerApp.Pages
 {
@@ -10,20 +12,24 @@ namespace FoodTrackerApp.Pages
     {
         public LoginPage()
         {
-            var vm = new LoginModel();
-            this.BindingContext = vm;
-            vm.DisplayInvalidLoginPrompt += () => DisplayAlert("Error", "Invalid Login, try again", "OK");
-            vm.DisplayAlert += () => DisplayAlert("Success", "Email and Password Authenticated", "OK");
             InitializeComponent();
+        }
 
-            Email.Completed += (object sender, EventArgs e) =>
-            {
-                Password.Focus();
-            };
+        private async void BtnLogin_Clicked(object sender, EventArgs e)
+        {
+            ApiServices apiServices = new ApiServices();
 
-            Password.Completed += (object sender, EventArgs e) =>
+            //Console.WriteLine(LoginEmail.Text);
+            //Console.WriteLine(LoginPassword.Text);
+            bool response = await apiServices.LoginUser(LoginEmail.Text, LoginPassword.Text);
+            if(!response)
             {
-            };
+                await DisplayAlert("Alert", "Unable to Authenticate User.", "Cancel");
+            }
+            else
+            {
+                await DisplayAlert("Alert", "Log Sucessful", "Cancel");
+            }
         }
     }
 }
