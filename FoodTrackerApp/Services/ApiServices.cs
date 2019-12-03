@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FoodTrackerApp.Models;
 using Newtonsoft.Json;
+using Xamarin.Essentials;
 
 namespace FoodTrackerApp.Services
 {
@@ -53,6 +54,15 @@ namespace FoodTrackerApp.Services
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             HttpResponseMessage response = await httpClient.PostAsync("http://healthlog-deployment.dbmvyepwfm.us-east-1.elasticbeanstalk.com/api/auth/", content);
             var result = await response.Content.ReadAsStringAsync();
+            
+            try
+            {
+                await SecureStorage.SetAsync("token", result);
+            } catch (Exception)
+            {
+
+            }
+            
             return response.IsSuccessStatusCode;
             
         }

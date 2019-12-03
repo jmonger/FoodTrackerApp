@@ -26,7 +26,9 @@ namespace FoodTrackerApp.Pages
             }
             else
             {
-                await DisplayAlert("Alert", "Log Sucessful", "Cancel");
+
+                Navigation.InsertPageBefore(new MainMenuPage(), this);
+                await Navigation.PopAsync();
             }
         }
 
