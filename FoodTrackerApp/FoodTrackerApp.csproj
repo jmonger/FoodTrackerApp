@@ -19,4 +19,7 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Pages\MealsPage.cs" />
+  </ItemGroup>
 </Project>

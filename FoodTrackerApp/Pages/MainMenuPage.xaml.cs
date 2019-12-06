@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using FoodTrackerApp.Pages;
 
 namespace FoodTrackerApp.Pages
 {
@@ -15,6 +16,14 @@ namespace FoodTrackerApp.Pages
         public MainMenuPage()
         {
             InitializeComponent();
+        }
+
+        private async void meals_btn_clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MealsMenu());
+
+
+            
         }
     }
 }
