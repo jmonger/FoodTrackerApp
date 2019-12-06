@@ -25,10 +25,10 @@
                     <RowDefinition Height="150"/>
                     <RowDefinition Height="150"/>
                 </Grid.RowDefinitions>
-                <Button FontSize="Large" BackgroundColor="Black" TextColor="White" Text="Meal"></Button>
+                <Button x:Name="MealsButton" Clicked="MealsButton_Clicked" FontSize="Large" BackgroundColor="Black" TextColor="White" Text="Meals"></Button>
                 <Button FontSize="Large" Grid.Column="1" BackgroundColor ="Black" TextColor="White" Text="Ailments"/>
                 <Button FontSize="Large" Grid.Row="1" BackgroundColor ="Black" TextColor="White" Text="Reports"/>
-                <Button FontSize="Large" Grid.Row="1" BackgroundColor ="Black" TextColor="White" Grid.Column="1" Text="Settings"/>
+                <Button FontSize="Large" Grid.Row="1" BackgroundColor ="Black" TextColor="White" Grid.Column="1" Text="Profile"/>
                 <Button FontSize="Large" Grid.Row="2" BackgroundColor ="Black" TextColor="White" Grid.Column="1" Text="Logout"/>
                 <Button FontSize="Large" Grid.Row="2" BackgroundColor ="Black" TextColor="White"  Text="Help"/>
             </Grid>

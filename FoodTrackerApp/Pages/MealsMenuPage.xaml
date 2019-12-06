@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FoodTrackerApp.Pages.MealsMenuPage"
+             BackgroundImageSource="market.jpg">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Image Source="foodsafelogo.png" WidthRequest="25"/>
+            <Label Text="FoodSafe" TextColor="White" FontSize="Medium"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+
+            <StackLayout Orientation="Vertical" VerticalOptions="Center" Margin="40,0,40,0">
+
+            <Frame BackgroundColor="#FE0000" HasShadow="False">
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <Picker TitleColor="White" Title="Select Meal" TextColor="White" x:Name="MealsGroup" HeightRequest="45">
+                        <Picker.Items>
+                            <x:String>Breakfast</x:String>
+                            <x:String>Lunch</x:String>
+                            <x:String>Dinner</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Button BackgroundColor="Black" TextColor="White" Text="Update" x:Name="BtnSelectMeal" Clicked="BtnSelectMeal_Clicked"></Button>
+                </StackLayout>
+            </Frame>
+            
+            </StackLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>
