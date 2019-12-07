@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using FoodTrackerApp.Models;
@@ -61,10 +62,20 @@ namespace FoodTrackerApp.Services
             } catch (Exception)
             {
 
-            }
-            
-            return response.IsSuccessStatusCode;
-            
+            }        
+            return response.IsSuccessStatusCode;           
         }
+
+        public async Task<ConditionsModel> AllConditions()
+        {
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Token", 
+                //await SecureStorage.GetAsync("token")
+                "dc7fdbb7c51275af932b2669ccb737fe91432018");
+            var foodSafeApiUrl = "http://healthlog-deployment.dbmvyepwfm.us-east-1.elasticbeanstalk.com/api/conditions/";
+            var json = await httpClient.GetStringAsync(foodSafeApiUrl);
+            return JsonConvert.DeserializeObject<ConditionsModel>(json);
+        }
+
     }
 }
