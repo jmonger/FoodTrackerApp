@@ -46,14 +46,13 @@ namespace FoodTrackerApp.Pages
                 else
                 {
                     await DisplayAlert("Alert", "User Account Created", Cancel);
-                    await Navigation.PopToRootAsync();
+                    await Navigation.PushAsync(new EnterChronicIllnessPage());
                 }
             } else if (!confirmPass) {
                 await DisplayAlert("Alert", "Passwords do not match!", Cancel);
 
             } else if (birthday == "")
             {
-                await DisplayAlert("Alert", "Please Enter Birthday to Continue", Cancel);
 
             }
 

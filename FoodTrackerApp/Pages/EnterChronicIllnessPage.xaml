@@ -10,57 +10,28 @@
                 <Image HorizontalOptions="Center" WidthRequest="100" Source="foodsafelogo.png"/>
                 <Label Text="Create Account" HorizontalOptions="Center" FontSize="25"/>
                 <Label Text="Enter Health Details" HorizontalOptions="Center" FontSize="15"/>
-                <Frame BackgroundColor="#FE0000" HasShadow="False">  
-                    <StackLayout Orientation="Vertical" Spacing="10">
-                        <StackLayout Orientation="Horizontal" HeightRequest="30">
-                            <CheckBox x:Name="diabetes" />
-                            <Label Text="Diabetes" FontSize="20" TextColor="White"/>
-                        </StackLayout>
+                <Frame BackgroundColor="#FE0000" HasShadow="False">
+                <ListView x:Name="LvChronicConditions">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <CheckBox Color="Black"/>
+                                    <Label Text="{Binding Name}" TextColor="White" FontSize="Medium"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
 
-                        <StackLayout Orientation="Horizontal" HeightRequest="30">
-                            <CheckBox x:Name="heartDisease" />
-                            <Label Text="Heart Disease" FontSize="20" TextColor="White"/>
-                        </StackLayout>
 
-                        <StackLayout Orientation="Horizontal" HeightRequest="30">
-                            <CheckBox x:Name="cancer" />
-                            <Label Text="Cancer" FontSize="20" TextColor="White"/>
-                        </StackLayout>
+                    </ListView.ItemTemplate>
+                </ListView>
 
-                        <StackLayout Orientation="Horizontal" HeightRequest="30">
-                            <CheckBox x:Name="asthma" />
-                            <Label Text="Asthma" FontSize="20" TextColor="White"/>
-                        </StackLayout>
-
-                        <StackLayout Orientation="Horizontal" HeightRequest="30">
-                            <CheckBox x:Name="moodDisorder" />
-                            <Label Text="Mood Disorder" FontSize="20" TextColor="White"/>
-                        </StackLayout>
-
-                        <StackLayout Orientation="Horizontal" HeightRequest="30">
-                            <CheckBox x:Name="epilepsy" />
-                            <Label Text="Epilepsy" FontSize="20" TextColor="White"/>
-                        </StackLayout>
-
-                    </StackLayout>
 
                 </Frame>
-                <Entry x:Name="weight" Text="{Binding weight}" Placeholder="Enter Weight"   
-                            PlaceholderColor="Red" HeightRequest="45"   
-                            Keyboard="weight"  
-                            TextColor="White"/>
 
-
-                <StackLayout Orientation="Horizontal">
-                        <Button Command="{Binding SubmitCommand}" WidthRequest="100" Text="...Back" TextColor="White"  
-                            FontAttributes="Bold" FontSize="Large" HorizontalOptions="StartAndExpand"  
-                            BackgroundColor="Black" />
-                        <Button Command="{Binding SubmitCommand}" WidthRequest="100" Text="Submit" TextColor="White"  
-                                FontAttributes="Bold" FontSize="Large" HorizontalOptions="EndAndExpand"  
-                                BackgroundColor="Black" />
-                </StackLayout>
-
-
+            <Button Text="Submit" BackgroundColor="Black" TextColor="White">
+                
+            </Button>
             </StackLayout>
     </ContentPage.Content>  
 </ContentPage> 

@@ -8,12 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using FoodTrackerApp.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Xamarin.Essentials;
 
 namespace FoodTrackerApp.Services
 {
     class ApiServices
     {
+        HttpClient _client;
+
+        public ApiServices()
+        {
+            _client = new HttpClient();
+        }
+
+        /***AUTHENTICATION***/
+
+        //User Login
         public async Task<bool> RegisterUserAsync(string email, string first_name, string last_name, string password, int age,
                                  int weight,
                                  int height,
@@ -30,52 +41,82 @@ namespace FoodTrackerApp.Services
                 height = height,
                 birth_date = birth_date
             };
-
-            var httpClient = new HttpClient();
-            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
             var json = JsonConvert.SerializeObject(registerModel);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync("http://healthlog-deployment.dbmvyepwfm.us-east-1.elasticbeanstalk.com/api/registration/", content);
+            var response = await _client.PostAsync("http://healthlog-deployment.dbmvyepwfm.us-east-1.elasticbeanstalk.com/api/registration/", content);
+            var result = await response.Content.ReadAsStringAsync();
+            JObject jObject = JsonConvert.DeserializeObject<dynamic>(result);
+            var token = jObject.Value<string>("token");
+            Console.WriteLine(token);
+            Settings.AccessToken = token;
             return response.IsSuccessStatusCode;
         }
 
+        //Register User
         public async Task<bool> LoginUser(string email, string password)
         {
-
             var loginModel = new LoginModel()
             {
                 email = email,
                 password = password
             };
-
-            var httpClient = new HttpClient();
-            //For TLS https support
-            //System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
             var json = JsonConvert.SerializeObject(loginModel);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await httpClient.PostAsync("http://healthlog-deployment.dbmvyepwfm.us-east-1.elasticbeanstalk.com/api/auth/", content);
+            HttpResponseMessage response = await _client.PostAsync("http://healthlog-deployment.dbmvyepwfm.us-east-1.elasticbeanstalk.com/api/auth/", content);
             var result = await response.Content.ReadAsStringAsync();
+            JObject jObject = JsonConvert.DeserializeObject<dynamic>(result);
+            var token = jObject.Value<string>("token");
+
+            Settings.AccessToken = token;
+            Console.WriteLine(Settings.AccessToken);
+
+            return response.IsSuccessStatusCode;
+        }
+
+        //***CHRONIC CONDITION***
+
             
-            try
-            {
-                await SecureStorage.SetAsync("token", result);
-            } catch (Exception)
-            {
-
-            }        
-            return response.IsSuccessStatusCode;           
-        }
-
-        public async Task<ConditionsModel> AllConditions()
+        public async Task<List<Result>> GetAllChronicConditions()
         {
-            var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Token", 
-                //await SecureStorage.GetAsync("token")
-                "dc7fdbb7c51275af932b2669ccb737fe91432018");
-            var foodSafeApiUrl = "http://healthlog-deployment.dbmvyepwfm.us-east-1.elasticbeanstalk.com/api/conditions/";
-            var json = await httpClient.GetStringAsync(foodSafeApiUrl);
-            return JsonConvert.DeserializeObject<ConditionsModel>(json);
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Token", Settings.AccessToken);
+
+            var json = await _client.GetStringAsync("http://healthlog-deployment.dbmvyepwfm.us-east-1.elasticbeanstalk.com/api/conditions/");
+            var chronicConditions = JsonConvert.DeserializeObject<ConditionModel>(json);
+            return chronicConditions.Results;
         }
+
+
+
+        /***FOOD***/
+
+        //Create Food
+
+
+
+
+        //Retrieve Food
+
+        //Search Food
+
+
+
+
+        //***MEALS***
+
+
+
+        //***HEALTH LOG***
+
+        //***TEMPORARY AILMENT***
+
+        //***CLIENT INFO***
+
+        //***TICKET***
+
+        //***REPORTS***
+
+
 
     }
+
 }

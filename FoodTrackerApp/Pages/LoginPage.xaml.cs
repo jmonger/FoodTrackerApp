@@ -36,5 +36,10 @@ namespace FoodTrackerApp.Pages
         {
             Navigation.PushAsync(new CreateAccountPage());
         }
+
+        private void BtnGetConditionTest_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new EnterChronicIllnessPage());
+        }
     }
 }
