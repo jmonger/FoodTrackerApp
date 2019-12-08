@@ -10,6 +10,8 @@ namespace FoodTrackerApp.Pages
     public partial class EnterChronicIllnessPage : ContentPage
     {
         public ObservableCollection <Result> Conditions;
+        public List<int> SelectedConditions;
+
         public EnterChronicIllnessPage()
         {
             InitializeComponent();
@@ -28,6 +30,35 @@ namespace FoodTrackerApp.Pages
 
             }
             LvChronicConditions.ItemsSource = Conditions;
+        }
+
+        private async void chronBtn_Clicked(object sender, EventArgs e)
+        {
+            ApiServices apiServices = new ApiServices();
+            await apiServices.AddConditionsToUser(SelectedConditions);
+
+
+            Navigation.InsertPageBefore(new LoginPage(), this);
+            await Navigation.PopAsync();
+
+        }
+
+        private void CheckBox_CheckChanged(object sender, EventArgs e)
+        {
+            SelectedConditions = new List<int>();
+
+            for (int i =0;i<Conditions.Count; i++)
+            {
+                Result cond = Conditions[i];
+
+
+                if (cond.ROWCHECK)
+                {
+                    SelectedConditions.Add(cond.Id);
+                    Console.WriteLine("Condition Id: " + cond.Id);
+                }
+            }
+
         }
     }
 }

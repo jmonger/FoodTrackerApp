@@ -11,8 +11,10 @@ namespace FoodTrackerApp
         {
             InitializeComponent();
 
+
             MainPage = new NavigationPage(new LoginPage( ))
             {
+
                 BarBackgroundColor = Color.FromHex("#FE0000"),
                 BarTextColor = Color.Black
 

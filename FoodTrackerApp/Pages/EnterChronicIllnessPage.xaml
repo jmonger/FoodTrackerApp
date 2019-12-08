@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>  
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"  
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
              x:Class="FoodTrackerApp.Pages.EnterChronicIllnessPage"
              
              >  
@@ -16,8 +17,7 @@
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal">
-                                    <CheckBox Color="Black"/>
-                                    <Label Text="{Binding Name}" TextColor="White" FontSize="Medium"/>
+                                    <input:CheckBox Color="Black" Text="{Binding Name}" Type="Check" CheckChanged="CheckBox_CheckChanged" TextColor="White" IsChecked="{Binding ROWCHECK, Mode=TwoWay}"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
@@ -29,7 +29,7 @@
 
                 </Frame>
 
-            <Button Text="Submit" BackgroundColor="Black" TextColor="White">
+            <Button Text="Add Conditions" BackgroundColor="Black" TextColor="White" x:Name="chronBtn" Clicked="chronBtn_Clicked">
                 
             </Button>
             </StackLayout>

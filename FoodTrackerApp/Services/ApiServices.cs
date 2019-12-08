@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
@@ -75,7 +76,7 @@ namespace FoodTrackerApp.Services
 
         //***CHRONIC CONDITION***
 
-            
+        //Get All Conditions
         public async Task<List<Result>> GetAllChronicConditions()
         {
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Token", Settings.AccessToken);
@@ -84,6 +85,28 @@ namespace FoodTrackerApp.Services
             var chronicConditions = JsonConvert.DeserializeObject<ConditionModel>(json);
             return chronicConditions.Results;
         }
+
+        //Add Conditions to User
+        public async Task<bool> AddConditionsToUser(List<int> conditionsIntCollection)
+        {
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Token", Settings.AccessToken);
+            var method = new HttpMethod("PATCH");
+
+            var conditionPatch = new PatchResult();
+            conditionPatch.conditions = conditionsIntCollection;
+
+            var request = new HttpRequestMessage(method, "http://healthlog-deployment.dbmvyepwfm.us-east-1.elasticbeanstalk.com/api/users/me/")
+            //var request = new HttpRequestMessage(method, "https://foodsafe.requestcatcher.com/test/")
+
+            {
+                Content = new StringContent(
+                    JsonConvert.SerializeObject(conditionPatch),
+                    Encoding.UTF8, "application/json")
+            };
+            var response = await _client.SendAsync(request);
+            return response.IsSuccessStatusCode;
+        }
+
 
 
 

@@ -23,7 +23,14 @@ namespace FoodTrackerApp.Models
         public int Id { get; set; }
         [JsonProperty("name")]
         public string Name { get; set; }
+        public bool ROWCHECK { get; set; }
     }
+
+    public class PatchResult
+    {
+        public List<int> conditions { get; set; }
+    }
+
 
 
 }
