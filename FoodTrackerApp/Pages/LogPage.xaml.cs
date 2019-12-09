@@ -9,7 +9,7 @@ using Xamarin.Forms.Xaml;
 using FoodTrackerApp.Models;
 using System.Collections.ObjectModel;
 using FoodTrackerApp.Services;
-using Android.Support.V7.App;
+//using Xamarin.Forms.PlatformConfiguration.Android.Support.V7.App;
 
 namespace FoodTrackerApp.Pages
 {

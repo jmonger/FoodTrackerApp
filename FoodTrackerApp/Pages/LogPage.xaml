@@ -26,7 +26,7 @@
                 </ListView.ItemTemplate>
             </ListView>
         </Frame>
-        <Button Text="Add Log" BackgroundColor="Black" TextColor="White" x:Name="logbtn" Clicked="logbtn_Clicked"/>
+        <Button Text="Add Log" BackgroundColor="Black" TextColor="White" x:Name="logbtn"/>
 
     </StackLayout>
 
