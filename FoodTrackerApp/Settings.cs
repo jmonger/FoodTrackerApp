@@ -39,6 +39,30 @@ namespace FoodTrackerApp
         }
     }
 
-}
+        public static string LogId
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault("logId", SettingsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue("logId", value);
+            }
+        }
+
+        public static string LogDate
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault("logDate", SettingsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue("logDate", value);
+            }
+        }
+
+    }
 }
 

@@ -31,7 +31,7 @@
                 <Button Command="{Binding SubmitCommand}" Text="Login" TextColor="White"  
                                 FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                                 BackgroundColor="Black" x:Name="BtnLogin" Clicked="BtnLogin_Clicked"/>
-                <Button Command="{Binding SubmitCommand}"  Text="Get Conditions Test" TextColor="White"  
+                <Button Command="{Binding SubmitCommand}"  Text="View Logs" TextColor="White"  
                                 FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                                 BackgroundColor="Black" x:Name="BtnGetConditionTest" Clicked="BtnGetConditionTest_Clicked"/>
             </StackLayout>

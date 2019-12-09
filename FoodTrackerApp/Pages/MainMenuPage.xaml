@@ -25,8 +25,7 @@
                     <RowDefinition Height="150"/>
                     <RowDefinition Height="150"/>
                 </Grid.RowDefinitions>
-                <Button x:Name="MealsButton" Clicked="MealsButton_Clicked" FontSize="Large" BackgroundColor="Black" TextColor="White" Text="Meals"></Button>
-                <Button FontSize="Large" Grid.Column="1" BackgroundColor ="Black" TextColor="White" Text="Ailments"/>
+                <Button x:Name="LogButton" Clicked="LogButton_Clicked" Grid.ColumnSpan="2" FontSize="Large" BackgroundColor="Black" TextColor="White" Text="Log Health Data"></Button>
                 <Button FontSize="Large" Grid.Row="1" BackgroundColor ="Black" TextColor="White" Text="Reports"/>
                 <Button FontSize="Large" Grid.Row="1" BackgroundColor ="Black" TextColor="White" Grid.Column="1" Text="Profile"/>
                 <Button FontSize="Large" Grid.Row="2" BackgroundColor ="Black" TextColor="White" Grid.Column="1" Text="Logout"/>

@@ -39,7 +39,7 @@ namespace FoodTrackerApp.Pages
 
         private void BtnGetConditionTest_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new EnterChronicIllnessPage());
+            Navigation.PushAsync(new LogPage());
         }
     }
 }

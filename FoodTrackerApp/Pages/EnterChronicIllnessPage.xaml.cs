@@ -55,7 +55,7 @@ namespace FoodTrackerApp.Pages
                 if (cond.ROWCHECK)
                 {
                     SelectedConditions.Add(cond.Id);
-                    Console.WriteLine("Condition Id: " + cond.Id);
+                    //Console.WriteLine("Condition Id: " + cond.Id);
                 }
             }
 

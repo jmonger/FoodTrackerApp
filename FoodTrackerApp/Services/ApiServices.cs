@@ -128,7 +128,30 @@ namespace FoodTrackerApp.Services
 
 
 
-        //***HEALTH LOG***
+        //***HEALTH LOG***/
+        //Get All Health Logs
+        public async Task<List<LogModelResult>> GetAllHealthLogs()
+        {
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Token", "dc7fdbb7c51275af932b2669ccb737fe91432018");
+
+            var json = await _client.GetStringAsync("http://healthlog-deployment.dbmvyepwfm.us-east-1.elasticbeanstalk.com/api/logs/");
+            var logs = JsonConvert.DeserializeObject<LogModel>(json);
+            Console.WriteLine(json);
+            return logs.LogModelResult;
+        }
+
+        //Delete Health Log by Id
+        public async Task<bool> DeleteHealthLog(int id)
+        {
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Token", "dc7fdbb7c51275af932b2669ccb737fe91432018");
+            var response = await _client.DeleteAsync("http://healthlog-deployment.dbmvyepwfm.us-east-1.elasticbeanstalk.com/api/logs/" + id);
+            //var response = await _client.DeleteAsync("https://foodsafe.requestcatcher.com/test/" +id);
+            Console.WriteLine(response.IsSuccessStatusCode);
+            return response.IsSuccessStatusCode;
+
+        }
+
+
 
         //***TEMPORARY AILMENT***
 

@@ -10,21 +10,13 @@ using Xamarin.Forms.Xaml;
 namespace FoodTrackerApp.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainMenuPage : ContentPage
+    public partial class SelectDatePage : ContentPage
     {
-        public MainMenuPage()
+        public SelectDatePage()
         {
             InitializeComponent();
         }
 
-        private void MealsButton_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new MealsMenuPage());
-        }
 
-        private void LogButton_Clicked(object sender, EventArgs e)
-        {
-
-        }
     }
 }

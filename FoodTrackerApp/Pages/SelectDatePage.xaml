@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="FoodTrackerApp.Pages.MealsMenuPage"
+             x:Class="FoodTrackerApp.Pages.SelectDatePage"
              BackgroundImageSource="market.jpg">
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">
@@ -15,30 +15,22 @@
 
     <ContentPage.Content>
 
-            <StackLayout Orientation="Vertical" VerticalOptions="Center" Margin="40,0,40,0">
+        <StackLayout Orientation="Vertical" VerticalOptions="Center" Margin="40,0,40,0">
 
             <Frame BackgroundColor="#FE0000" HasShadow="False">
                 <StackLayout Orientation="Vertical" Spacing="10">
-                    <Picker TitleColor="White" Title="Select Meal" TextColor="White" x:Name="MealsGroup" SelectedIndexChanged="MealsGroup_SelectedIndexChanged" ItemsSource="{Binding meals}" HeightRequest="45">
-                        <Picker.Items>
-                            <x:String>Breakfast</x:String>
-                            <x:String>Lunch</x:String>
-                            <x:String>Dinner</x:String>
-                        </Picker.Items>
-                    </Picker>
                     <DatePicker x:Name="SelectedLogDate"
                                 Format="yyyy-MM-dd"
                                 MinimumDate="1900-01-01"
                                 MaximumDate="2020-01-01"
                                    HeightRequest="40"   
                                    TextColor="White"
-                                    DateSelected="SelectedLogDate_DateSelected"/>
-                    <Button BackgroundColor="Black" TextColor="White" Text="Update" x:Name="BtnSelectMeal" Clicked="BtnSelectMeal_Clicked"></Button>
+                                    />
                 </StackLayout>
-                
+
             </Frame>
-            
-            </StackLayout>
+
+        </StackLayout>
 
 
     </ContentPage.Content>
