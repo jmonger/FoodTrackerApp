@@ -25,6 +25,8 @@ namespace FoodTrackerApp.Pages
         private void LogButton_Clicked(object sender, EventArgs e)
         {
 
+            Navigation.PushAsync(new LogPage());
+
         }
     }
 }

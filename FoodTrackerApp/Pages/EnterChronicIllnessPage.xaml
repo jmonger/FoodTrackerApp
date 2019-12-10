@@ -7,7 +7,6 @@
     <ContentPage.Content>
             <StackLayout Orientation="Vertical" Padding="40" Spacing="10">  
                 <BoxView HeightRequest="5"/>
-                <Image HorizontalOptions="Center" WidthRequest="100" Source="foodsafelogo.png"/>
                 <Label Text="Create Account" HorizontalOptions="Center" FontSize="25"/>
                 <Label Text="Enter Health Details" HorizontalOptions="Center" FontSize="15"/>
                 <Frame BackgroundColor="#FE0000" HasShadow="False">

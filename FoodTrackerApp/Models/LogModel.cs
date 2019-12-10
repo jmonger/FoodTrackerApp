@@ -1,15 +1,17 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 
 namespace FoodTrackerApp.Models
 {
-    public class LogModelResult
+    public class LogModelResult 
     {
         [JsonProperty("id")]
         public int Id { get; set; }
 
         [JsonProperty("date")]
         public string Date { get; set; }
+
     }
 
     public class LogModel

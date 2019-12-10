@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>  
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             x:Class="FoodTrackerApp.Pages.EnterChronicIllnessPage"         
+             >  
+    <ContentPage.Content>
+            <StackLayout Orientation="Vertical" Padding="40" Spacing="10">  
+                <BoxView HeightRequest="5"/>
+                <Image HorizontalOptions="Center" WidthRequest="100" Source="foodsafelogo.png"/>
+                <Label Text="Create Account" HorizontalOptions="Center" FontSize="25"/>
+                <Label Text="Enter Health Details" HorizontalOptions="Center" FontSize="15"/>
+                <Frame BackgroundColor="#FE0000" HasShadow="False">
+                <ListView x:Name="LvChronicConditions">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <input:CheckBox Color="Black" Text="{Binding Name}" Type="Check" CheckChanged="CheckBox_CheckChanged" TextColor="White" IsChecked="{Binding ROWCHECK, Mode=TwoWay}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+
+
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+                </Frame>
+
+            <Button Text="Add Conditions" BackgroundColor="Black" TextColor="White" x:Name="chronBtn" Clicked="chronBtn_Clicked">
+                
+            </Button>
+            </StackLayout>
+    </ContentPage.Content>  
+</ContentPage> 

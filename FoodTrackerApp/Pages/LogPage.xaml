@@ -6,7 +6,14 @@
              BackgroundImageSource="market.jpg"
              mc:Ignorable="d"
              x:Class="FoodTrackerApp.Pages.LogPage">
+        <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Image Source="foodsafelogo.png" WidthRequest="25"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
     <StackLayout Orientation="Vertical" Padding="40" Spacing="10">
+            <Label Text="Select a Log to Continue" FontSize="Large"/>
         <Frame BackgroundColor="White" HasShadow="False">
             <ListView x:Name="LvLogs" ItemSelected="LvLogs_ItemSelected">
                 <ListView.ItemTemplate>
@@ -26,11 +33,20 @@
                 </ListView.ItemTemplate>
             </ListView>
         </Frame>
-        <Button Text="Add Log" BackgroundColor="Black" TextColor="White" x:Name="logbtn"/>
+        <BoxView HeightRequest="10"/>
+        <Frame BackgroundColor="Black">
+         <StackLayout>
+             <DatePicker x:Name="SelectedLogDate"
+                 Format="yyyy-MM-dd"
+                 MinimumDate="1900-01-01"
+                 MaximumDate="2020-01-01"
+                 HeightRequest="40"   
+                 TextColor="White"
+                 DateSelected="selected_log_date"/>
+            <Button Text="Add Health Log" TextColor="White" BackgroundColor="LightGray" x:Name="BtnAddLog" Clicked="BtnAddLog_Clicked"/>
+        </StackLayout>
+        </Frame>
 
     </StackLayout>
-
-
-
-    
+   
 </ContentPage>
